@@ -1,6 +1,6 @@
 package heroes;
 
-public class Hero {
+public abstract class Hero {
 
     private String name;
 
