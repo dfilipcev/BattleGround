@@ -26,14 +26,13 @@ public class Necromancer extends Enemy {
         hero.takeDamage(getDamage());
         skeletonsInvoke();
         if (isHasSkeletons()) {
-            for (Skeleton skeleton : new ArrayList<>(skeletons)) {
-                if (skeleton.isAlive()) {
-                    skeleton.attackHero(hero);
-                }
-                if (hero.isAlive()) {
-                    hero.attackEnemy(skeleton);
-                }
-            }
+            skeletons.stream().filter(Skeleton::isAlive).
+                    forEach(skeleton -> {
+                        skeleton.attackHero(hero);
+                        if (hero.isAlive()) {
+                            hero.attackEnemy(skeleton);
+                        }
+                    });
         }
     }
 
@@ -65,7 +64,7 @@ public class Necromancer extends Enemy {
 
     private class Skeleton extends Enemy {
 
-        private static int skeletonsCount = 0;
+        private static int skeletonsCount = 1;
 
         public Skeleton(String name, int health, int damage) {
             super(name, health, damage);
