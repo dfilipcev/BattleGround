@@ -9,7 +9,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Necromancer extends Enemy {
 
-    private static final double SKELETONS_INVOKE_PROBABILITY = 1.0;
+    private static final double SKELETONS_INVOKE_PROBABILITY = 0.05;
     private List<Skeleton> skeletons;
 
     public Necromancer(String name, int health, int damage) {
