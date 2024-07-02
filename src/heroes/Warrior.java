@@ -1,5 +1,7 @@
 package heroes;
 
+import enemies.Enemy;
+
 public class Warrior extends Hero {
 
     public Warrior(String name) {
@@ -7,7 +9,9 @@ public class Warrior extends Hero {
     }
 
     @Override
-    public void attackEnemy() {
+    public void attackEnemy(Enemy enemy) {
         System.out.println("Warrior attacks enemy!");
+        int warriorDamage = 30;
+        enemy.takeDamage(warriorDamage);
     }
 }

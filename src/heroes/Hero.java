@@ -1,5 +1,7 @@
 package heroes;
 
+import enemies.Enemy;
+
 public abstract class Hero {
 
     private String name;
@@ -12,7 +14,6 @@ public abstract class Hero {
         return name;
     }
 
-    public void attackEnemy() {
-        System.out.println("Hero is attacking enemy!");
-    }
+    public abstract void attackEnemy(Enemy enemy);
+
 }
