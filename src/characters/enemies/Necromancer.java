@@ -58,17 +58,19 @@ public class Necromancer extends Enemy {
                 skeletons = new ArrayList<>();
             }
             System.out.println(getName() + " has invoked skeleton!");
-            skeletons.add(new Skeleton("Skeleton " + Skeleton.getSkeletonsCount(), 20, 15));
+            skeletons.add(new Skeleton("Skeleton " + Skeleton.SKELETONS_COUNT, Skeleton.SKELETONS_HEALTH , Skeleton.SKELETONS_DAMAGE));
         }
     }
 
     private class Skeleton extends Enemy {
 
-        private static int skeletonsCount = 1;
+        private static final int SKELETONS_HEALTH = 20;
+        private static final int SKELETONS_DAMAGE = 15;
+        private static int SKELETONS_COUNT = 1;
 
         public Skeleton(String name, int health, int damage) {
             super(name, health, damage);
-            skeletonsCount += 1;
+            SKELETONS_COUNT += 1;
         }
 
         @Override
@@ -88,10 +90,6 @@ public class Necromancer extends Enemy {
             if (!isAlive()) {
                 System.out.println(getName() + " has fall apart");
             }
-        }
-
-        public static int getSkeletonsCount() {
-            return skeletonsCount;
         }
 
         @Override
